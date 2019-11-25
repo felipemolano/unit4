@@ -4,7 +4,30 @@
 
 
 
- const phrase = new Phrase("HOLA mis Amigos");
- const game = new Game();
- console.log(game.getRandomPhrase());
+ 
+ //phrase.addPhraseToDisplay();
+ //const game = new Game();
+ //game.startGame();
+ //console.log(`Active phrase : ${game.activePhrase}`)
+ //console.log(game.getRandomPhrase().addPhraseToDisplay());
  //console.log(phrase.phrase);
+
+
+
+ // variables
+
+
+ let game;
+ const button = document.getElementById("btn__reset");
+
+
+ // button event listener
+
+ button.addEventListener("click", function(){
+
+    game = new Game();
+    game.startGame();
+
+
+ });
+

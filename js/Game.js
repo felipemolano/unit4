@@ -8,22 +8,25 @@
 
  class Game {
 
+    
     // constructor
     constructor(){
         this.missed = 0;
         this.phrases = this.createPhrases();
         this.activePhrase = null;
+        
     }
 
 
     // createPhrases method
     createPhrases(){
 
-        const phrasesArray = [new Phrase("life is peachy"), 
-                              new Phrase("never forget to remember"),
-                              new Phrase("God is the truth"),
-                              new Phrase("home sweet home"),
-                              new Phrase("time worths gold")
+        const phrasesArray = [
+                              "life is peachy", 
+                              "never forget to remember",
+                              "God is the truth",
+                              "home sweet home",
+                              "time worths gold"
                             ];
 
         return phrasesArray;
@@ -36,10 +39,26 @@
     {
 
 
-        const randomNumber = (Math.random() * 2);
+        const randomNumber = (Math.ceil(Math.random()*4));
         return (this.phrases[randomNumber]);
 
     }
+
+
+    // startGame method
+
+    startGame(){
+
+        const overlay = document.getElementById("overlay").style.visibility = "hidden";
+       
+        
+        this.activePhrase = this.getRandomPhrase();
+        const phraseObj = new Phrase(this.activePhrase);
+        phraseObj.addPhraseToDisplay();
+
+    }
+
+
 
 
  }
