@@ -27,6 +27,28 @@
 
     game = new Game();
     game.startGame();
+    game.phraseObj.addPhraseToDisplay();
+    game.phraseObj.checkLetter("e");
+    game.phraseObj.showMatchedLetter("e");
+    game.phraseObj.checkLetter("w");
+    game.phraseObj.showMatchedLetter("w");
+    game.phraseObj.checkLetter("h");
+    game.phraseObj.showMatchedLetter("h");
+    game.phraseObj.checkLetter("o");
+    game.phraseObj.showMatchedLetter("o");
+    game.phraseObj.checkLetter("m");
+    game.phraseObj.showMatchedLetter("m");
+    game.phraseObj.checkLetter("s");
+    game.phraseObj.showMatchedLetter("s");
+    game.phraseObj.checkLetter("t");
+    game.phraseObj.showMatchedLetter("t");
+    
+    game.removeLife();
+    game.removeLife();
+    game.removeLife();
+    game.removeLife();
+    //console.log (game.gameOver("lost"));
+    console.log (game.checkForWin());
 
 
  });

@@ -20,7 +20,6 @@
         addPhraseToDisplay(){
 
             let myPhrase = this.phrase;
-            
             const ul = document.getElementById("phrase").children[0];
 
             myPhrase.split("").forEach(letter => {
@@ -41,6 +40,52 @@
                 
             });
 
+        }
+
+
+        // checkLetter method
+
+
+        checkLetter(letter){
+
+            let myPhrase = this.phrase;
+            myPhrase.split("").forEach(element => {
+
+                if(element === letter)
+                {
+                    console.log(myPhrase);
+                    console.log("match found for: "+letter);
+                }
+
+
+
+            });
+
+
+
+        }
+
+
+
+        // showMatchedLetter method
+
+
+        showMatchedLetter(letter)
+        {
+            
+            const ul = document.getElementsByClassName("hide");
+            for(let i = 0; i < ul.length ; i++)
+            {
+                if(letter === ul.item(i).innerText){
+                   
+                    ul.item(i).classList.add("show");
+                    //ul.item(i).classList.remove("hide");
+                    
+                
+                }
+            }
+         
+   
         }
 
 
