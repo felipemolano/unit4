@@ -42,6 +42,7 @@
 
 
         const randomNumber = (Math.ceil(Math.random()*4));
+        console.log(this.phrases[randomNumber]);
         return (this.phrases[randomNumber]);
 
     }
@@ -52,11 +53,9 @@
     startGame(){
 
         const overlay = document.getElementById("overlay").style.visibility = "hidden";
-       
-        
-        this.activePhrase = this.getRandomPhrase();
-        this.phraseObj = new Phrase(this.activePhrase);
 
+        this.activePhrase = new Phrase(String(this.getRandomPhrase()));
+        this.activePhrase.addPhraseToDisplay();
     }
 
 
@@ -64,7 +63,7 @@
 
     checkForWin()
     {
-        let stringNoSpaces = this.phraseObj.phrase.replace(/\s/g,'');
+        let stringNoSpaces = this.activePhrase.phrase.replace(/\s/g,'');
         const stringNoSpacesLength = stringNoSpaces.length;
      
         const ul = document.getElementById("phrase").children[0];
@@ -77,8 +76,8 @@
         
         }
       
-        console.log(counter);
-        console.log(stringNoSpacesLength);
+        //console.log(counter);
+        //console.log(stringNoSpacesLength);
         if(counter == stringNoSpacesLength)
         {
             return true;
@@ -96,17 +95,14 @@
 
     removeLife(){
 
-        this.missed += 1;
+        //this.missed += 1;
         
         const miss = document.getElementById("scoreboard").children[0];
-        
-        for(let i = 0; i < miss.children.length ; i++){
-
-            if(i === miss.children.length - 1){
-                miss.children[i].children[0].src = "images/lostHeart.png";
-            }
-        
+        if(this.missed < 5){
+        miss.children[this.missed].children[0].src = "images/lostHeart.png";
         }
+      
+        this.missed += 1;
         
     }
 

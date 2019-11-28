@@ -49,19 +49,23 @@
         checkLetter(letter){
 
             let myPhrase = this.phrase;
+            let cond = false;
             myPhrase.split("").forEach(element => {
 
                 if(element === letter)
                 {
-                    console.log(myPhrase);
-                    console.log("match found for: "+letter);
+                    
+                    cond = true;
                 }
+        
 
 
+               
 
             });
 
 
+            return cond;
 
         }
 
