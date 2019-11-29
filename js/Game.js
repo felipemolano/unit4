@@ -113,7 +113,24 @@
 
     gameOver(gameWon) {
 
-        return (this.missed > 5);
+        const overlay = document.getElementById("overlay");
+        const message = document.getElementById("game-over-message");
+        if(gameWon){
+
+            overlay.className = "win"
+            overlay.style.visibility = "visible";
+            message.innerText = "Good job you did it!!!";
+
+
+        }
+        else
+        {
+            overlay.className = "lose"
+            overlay.style.visibility = "visible";
+            message.innerText = "sorry you did not guess it!";
+
+        }
+ 
     }
 
 
