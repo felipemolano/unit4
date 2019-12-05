@@ -115,6 +115,53 @@
 
         const overlay = document.getElementById("overlay");
         const message = document.getElementById("game-over-message");
+
+        // reset the game
+
+        const li = document.querySelectorAll("li.hide");
+        const tries = document.querySelectorAll("li.tries");
+        const allKeysWrong  = document.querySelectorAll("button.wrong");
+        const allKeysChosen = document.querySelectorAll("button.chosen");
+
+        // remove the li elements
+        li.forEach(item => {
+
+            item.remove();
+        });
+
+        // reset key class
+
+        allKeysWrong.forEach(key => {
+
+            key.classList.remove("wrong");
+            key.classList.add("key");
+            key.disabled = false;
+           
+      
+        });
+
+        allKeysChosen.forEach(key => {
+
+            key.classList.remove("chosen");
+            key.classList.add("key");
+            key.disabled = false;
+           
+      
+        });
+
+        // reset life
+
+        this.missed = 0;
+        tries.forEach(t =>{
+            t.children[0].src = "images/liveHeart.png"
+        });
+
+
+     
+
+
+        
+        // have you won??
         if(gameWon){
 
             overlay.className = "win"
@@ -131,6 +178,47 @@
 
         }
  
+    }
+
+
+    // handleInteraction method
+
+    handleInteraction(button)
+    {
+        console.log(button);
+
+        // disable the pressed key
+           button.disabled = true;
+           
+        // does the phrase contain that pressed key?
+            
+            if(this.activePhrase.checkLetter(button.innerText))
+            {
+                // yes
+                button.className = "chosen";
+                this.activePhrase.showMatchedLetter(button.innerText);
+                if(this.checkForWin())
+                {
+                    this.gameOver(true);
+                }
+
+            }
+
+            else
+            {
+
+                // no
+                
+                button.className = "wrong";
+                this.removeLife();
+
+                if(this.missed === 5)
+                {
+                    this.gameOver(false);
+                }
+            }
+
+          
     }
 
 

@@ -19,14 +19,44 @@
 
  let game;
  const button = document.getElementById("btn__reset");
-
+ const container = document.getElementsByClassName("main-container");
 
  // button event listener
+ console.log(container[0]);
 
- button.addEventListener("click", function(){
+container[0].addEventListener("click", function(event){
 
-    game = new Game();
-    game.startGame();
+    console.log(event.target.type);
+
+     // reset the game
+
+
+      // remove al li elements from the Phrase ul element
+     
+
+        
+
+
+
+
+    if(event.target.type === "submit" && event.target.id === "btn__reset"){
+
+    
+     
+     
+
+      game = new Game();
+      game.startGame();
+      
+    }
+    else if(event.target.type === "submit"){
+  
+
+      game.handleInteraction(event.target);
+    }
+    
+   
+   
 
 
 
